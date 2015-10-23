@@ -946,13 +946,13 @@ jQuery(document).ready(function() {
       var working_hours = (working_time / 60 / 60);
       
       var post_data = {
-        'time_entry[issue_id]': t.issue.issue.id,
+        'time_entry[issue_id]': t.issue.issue.root_id,
         'time_entry[spent_on]': t.today,
         'time_entry[hours]': working_hours,
         'authenticity_token': $$P('input[name="authenticity_token"]').first().value
       };
       
-      var request_url = ['/projects', t.project.project.identifier, 'timelog/create'].join('/');
+      var request_url = '/redmine/time_entries.json';
       
       [
         'activity',
